@@ -15,6 +15,8 @@ import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.comp
 import { HolaComponent } from './componentes/hola/hola.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { NumerosPipe } from './pipes/numeros.pipe';
+import { DniPipe } from './pipes/dni.pipe';
+import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NumerosPipe } from './pipes/numeros.pipe';
     MultiplicarComponent,
     HolaComponent,
     TuberiasComponent,
-    NumerosPipe
+    NumerosPipe,
+    DniPipe,
+    EstructurasComponent
   ],
   imports: [
     BrowserModule,
