@@ -21,5 +21,9 @@
             <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios">{{usuario.nombre + " " + usuario.apellido}}</li>
         </ul>
         <p *ngIf="usuarioseleccionado!=null">Has seleccionado el usuario {{usuarioseleccionado.nombre + " " + usuarioseleccionado.apellido }}</p>
+        
     </div>
 </div>
+<ul>
+    <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios2">{{usuario.nombre + " " + usuario.apellido}}</li>
+</ul>

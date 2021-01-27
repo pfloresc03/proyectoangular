@@ -50,3 +50,15 @@
         </tr>
     </tbody>
 </table>
+<input type="number" placeholder="número 1" [(ngModel)]=num1> 
+<input type="number" placeholder="número 2" [(ngModel)]=num2>
+<select [(ngModel)]=operador>
+    <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
+</select>
+<div [ngSwitch]="operador">
+    <span *ngSwitchCase="'suma'">{{num1 + num2}}</span>
+    <span *ngSwitchCase="'resta'">{{num1 - num2}}</span>
+    <span *ngSwitchCase="'multiplicacion'">{{num1 * num2}}</span>
+    <span *ngSwitchCase="'division'">{{num1 / num2}}</span>
+    <span *ngSwitchDefault>Selecciona una operación</span>
+</div>
