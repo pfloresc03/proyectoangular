@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import "@angular/common/locales/global/es"
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
@@ -19,6 +20,7 @@ import { DniPipe } from './pipes/dni.pipe';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { CrudComponent } from './componentes/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,15 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
     DniPipe,
     EstructurasComponent,
     FormularioClaseComponent,
-    CrudLocalComponent
+    CrudLocalComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"}],
   bootstrap: [AppComponent]
