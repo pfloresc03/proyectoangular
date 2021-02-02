@@ -20,7 +20,11 @@ import { DniPipe } from './pipes/dni.pipe';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+<<<<<<< HEAD
 import { CrudComponent } from './componentes/crud/crud.component';
+=======
+import { RegistroComponent } from './componentes/registro/registro.component';
+>>>>>>> 4647069f9fb27cbfac659c6f94670673ce66144b
 
 @NgModule({
   declarations: [
@@ -39,14 +43,22 @@ import { CrudComponent } from './componentes/crud/crud.component';
     EstructurasComponent,
     FormularioClaseComponent,
     CrudLocalComponent,
+<<<<<<< HEAD
     CrudComponent
+=======
+    RegistroComponent
+>>>>>>> 4647069f9fb27cbfac659c6f94670673ce66144b
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
     HttpClientModule
+=======
+    ReactiveFormsModule
+>>>>>>> 4647069f9fb27cbfac659c6f94670673ce66144b
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"}],
   bootstrap: [AppComponent]

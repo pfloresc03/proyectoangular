@@ -1,0 +1,20 @@
+<form [formGroup]="formRegister" (submit)="evaluaForm()">
+    <input type="text" formControlName="nombre" placeholder="Nombre"><b style=color:red *ngIf="nombre1.invalid && (nombre1.touched)">El campo es obligatorio</b><br>
+    <input type="text" formControlName="apellidos" placeholder="Apellidos"><b style=color:red *ngIf="apellidos1.invalid && (apellidos1.touched)">El campo es obligatorio</b><br>
+    <input type="text" formControlName="password" placeholder="Password"><b style=color:red *ngIf="password1.invalid && (password1.touched)">El campo es obligatorio</b><br>
+    <input type="text" formControlName="email" placeholder="E-mail"><b style=color:red *ngIf="email1.invalid && (email1.touched)">El campo no es correcto</b><br>
+    <input type="text" formControlName="dni" placeholder="DNI"><b style=color:red *ngIf="dni1.invalid && (dni1.touched)">El campo es obligatorio</b><br>
+    <input type="text" formControlName="telefono" placeholder="Teléfono"><b style=color:red *ngIf="telefono1.invalid && (telefono1.touched)">El campo es obligatorio</b> <br>
+    <button type="submit" [disabled]="!formRegister.valid">Registrar</button>
+</form>
+
+{{dni1.errors|json}}
+<form [formGroup]="formRegister2" (submit)="evaluaForm2()">
+    <input type="text" formControlName="nombre" placeholder="Nombre"><br>
+    <input type="text" formControlName="apellidos" placeholder="Apellidos"><br>
+    <input type="text" formControlName="password" placeholder="Password"><br>
+    <input type="text" formControlName="email" placeholder="E-mail"><br>
+    <input type="text" formControlName="dni" placeholder="DNI"><br>
+    <input type="text" formControlName="telefono" placeholder="Teléfono"> <br>
+    <button type="submit" [disabled]="!formRegister2.valid">Registrar</button>
+</form>
