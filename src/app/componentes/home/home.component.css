@@ -1,0 +1,21 @@
+html {
+    align-content: center;
+}
+.jumbotron {
+    align-content: center;
+    text-align: center;
+    background-color: white;
+}
+#container {
+    text-align: justify;
+    border: double;
+    border-color: mediumaquamarine;
+}
+ul {
+    list-style-type: square;
+    color: maroon;
+}   
+h1 {
+    font-style: italic;
+    color:olive;
+}

@@ -23,13 +23,10 @@ const routes: Routes = [
   {path: "tuberias", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
   {path: "formularioClase", component:FormularioClaseComponent},
-<<<<<<< HEAD
   {path: "crudLocal", component:CrudLocalComponent},
   {path: "crud", component:CrudComponent},
-=======
   {path: "crud", component:CrudLocalComponent},
   {path: "registro", component:RegistroComponent},
->>>>>>> 4647069f9fb27cbfac659c6f94670673ce66144b
 
   {path: "**", component:HomeComponent}
 ];

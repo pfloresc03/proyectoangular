@@ -1,10 +1,30 @@
-<ul>
-    <li *ngFor="let nota of notas">{{nota.titulo}} : {{nota.contenido}}</li>
-</ul>
-<form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)'>
-    <input class="form-control" type="text" placeholder="Titulo" formControlName="titulo">
-    <input class="form-control" type="text" placeholder="Contenido" formControlName="contenido">
-    <button type="submit" [disabled]="formNuevo.invalid">Crear una nota</button>
-</form>
-<input type="text" [(ngModel)] = "notaNueva.titulo">
-<input type="text" [(ngModel)] = "notaNueva.contenido">
+
+<div class="container">
+    <h5>Formulario con formGroup</h5>
+    <form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)'>
+        <input class="form-control" type="text" placeholder="Titulo" formControlName="titulo">
+        <input class="form-control" type="text" placeholder="Contenido" formControlName="contenido">
+        <button type="submit" *ngIf="!formNuevo.value.id; else editar" [disabled]="formNuevo.invalid" class="btn btn-primary">Crear una nota</button>
+        
+        <ng-template #editar>
+            <button type="button" class="btn btn-danger" (click)='eliminarNota()' [disabled]="!formNuevo.value.id">Eliminar Nota</button>
+            <button type="button" class="btn btn-warning" (click)='editarNota()' [disabled]="formNuevo.invalid">Editar Nota</button>
+            <button type="button" class="btn btn-secondary" (click)='formNuevo.reset()'>Cancelar</button>
+        </ng-template>
+    </form>
+
+    <h5>Formulario con ngModel</h5>
+    <div class="input-group">
+        <input class="form-control" type="text" [(ngModel)] = "notaNueva.titulo" placeholder="Titulo"><br>
+        <input class="form-control" type="text" [(ngModel)] = "notaNueva.contenido" placeholder="Contenido"><br>
+        <button class="btn btn-primary" (click)="crearNota(notaNueva)">Crear una nota</button>
+    </div>
+    <div class="input-group">
+        <input (input)="buscarConRetraso()" class="form-control" type="text" [(ngModel)] = "busqueda" placeholder="Buscar">
+        
+    </div>
+    <p *ngIf="creada" class="alert"><b>Nota creada correctamente</b></p>
+    <ul>
+        <li *ngFor="let nota of notas" (click)="formNuevo.patchValue(nota)">{{nota.titulo}} : {{nota.contenido}}</li>
+    </ul>
+</div>

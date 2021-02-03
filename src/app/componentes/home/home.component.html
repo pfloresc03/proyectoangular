@@ -1,5 +1,6 @@
+<html>
 <div class="jumbotron">
-    <h1 class="display-3">Jumbo heading</h1>
+    <h1 class="display-3">Página de prueba</h1>
     <p class="lead">Jumbo helper text</p>
     <hr class="my-2">
     <p>More info</p>
@@ -13,17 +14,25 @@
         <p *ngIf="num1==0 || num1==null">El numero 1 es 0</p>
         <input type="number" [(ngModel)]="num2">
         <p *ngIf="num2==0 || num2==null">El numero 2 es 0</p>
-        <p>{{num1+num2}}</p>
+        <p>La suma de los 2 números es: {{num1+num2}}</p>
+        
         <ul>
-            <li *ngFor="let letra of letras">{{letra}}</li>
-        </ul>
-        <ul>
-            <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios">{{usuario.nombre + " " + usuario.apellido}}</li>
+            <li>Lista de letras</li>
+            <ul>
+                <li *ngFor="let letra of letras">{{letra}}</li>
+            </ul>
+            <li>Lista de Usuarios</li>
+            <ul>
+                <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios">{{usuario.nombre + " " + usuario.apellido}}</li>
+            </ul>
+            <li>Lista de Usuarios2</li>
+            <ul>
+                <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios2">{{usuario.nombre + " " + usuario.apellido}}</li>
+            </ul>
         </ul>
         <p *ngIf="usuarioseleccionado!=null">Has seleccionado el usuario {{usuarioseleccionado.nombre + " " + usuarioseleccionado.apellido }}</p>
         
     </div>
 </div>
-<ul>
-    <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios2">{{usuario.nombre + " " + usuario.apellido}}</li>
-</ul>
+
+</html>

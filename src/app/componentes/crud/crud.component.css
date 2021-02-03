@@ -1,0 +1,21 @@
+form {
+    text-justify: auto;
+    border:dotted;
+    border-color: rgba(180, 28, 28, 0.993);
+}
+
+.container {
+    align-content: center;
+    border: groove;
+    border-color: royalblue;
+}
+
+.alert {
+    color: red;
+}
+
+ul {
+    text-justify:inherit;
+    border:groove;
+    border-color: maroon;
+}
