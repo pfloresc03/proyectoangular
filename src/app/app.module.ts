@@ -22,6 +22,9 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudComponent } from './componentes/crud/crud.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { LoginComponent } from './componentes/auth/login/login.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
+import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormularioClaseComponent,
     CrudLocalComponent,
     CrudComponent,
-    RegistroComponent
+    RegistroComponent,
+    LoginComponent,
+    RegisterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
