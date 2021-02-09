@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserRouterGuard } from './auth/user-router.guard';
 import { AboutComponent } from './componentes/about/about.component';
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path: "crud", component:CrudLocalComponent},
   {path: "registro", component:RegisterComponent},
   {path: "login", component:LoginComponent},
-  {path: "perfil", component:PerfilComponent},
+  {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   
 
   {path: "**", component:HomeComponent}

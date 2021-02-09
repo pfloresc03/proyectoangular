@@ -21,5 +21,17 @@ export class UserService {
   acceso(usuario:User): Observable<any>{
     return this.http.post(url+'login',usuario)
   }
+
+  isLogged(): boolean{
+    return !!localStorage.getItem('userToken')
+  }
+
+  logout(): void{
+    localStorage.removeItem('userToken')
+  }
+
+  leerToken(): string{
+    return localStorage.getItem('userToken')
+  }
 }
 
