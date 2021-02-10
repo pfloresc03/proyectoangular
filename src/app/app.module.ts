@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import "@angular/common/locales/global/es"
 
@@ -52,6 +53,7 @@ import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

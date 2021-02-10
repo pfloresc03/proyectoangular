@@ -14,6 +14,10 @@ export class UserService {
     return this.http.post(url, usuario)
   }
 
+  eliminarUsuario(): Observable<any>{
+    return this.http.delete(url)
+  }
+
   guardarToken(token:string): void {
     localStorage.setItem('userToken', token)
   }
@@ -32,6 +36,14 @@ export class UserService {
 
   leerToken(): string{
     return localStorage.getItem('userToken')
+  }
+
+  obtenerPerfil(): Observable<any>{
+    return this.http.get(url)
+  }
+
+  editarPerfil(usuario:User): Observable<any>{
+    return this.http.put(url, usuario)
   }
 }
 
