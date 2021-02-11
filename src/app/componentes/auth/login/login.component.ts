@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
  formLogin = this.fb.group({
   email: ['',[Validators.required]],
   password: ['',[Validators.required]]
-  
  })
+ mensaje: string = ""
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
       },
-      error => console.log(error)
+      error =>{
+        console.log(error)
+        this.mensaje = error.error.error
+      } 
     )
   }
 }

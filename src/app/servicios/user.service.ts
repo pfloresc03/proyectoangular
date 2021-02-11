@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../clases/user';
-const url ='http://localhost:3000/user/'
+const url ='http://localhost/backendphp/user/'
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   acceso(usuario:User): Observable<any>{
-    return this.http.post(url+'login',usuario)
+    return this.http.post(url+'login/',usuario)
   }
 
   isLogged(): boolean{
@@ -44,6 +44,10 @@ export class UserService {
 
   editarPerfil(usuario:User): Observable<any>{
     return this.http.put(url, usuario)
+  }
+
+  subirImagen(entrada): Observable<any>{
+    return this.http.post(url+'image/',entrada)
   }
 }
 

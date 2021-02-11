@@ -4,3 +4,6 @@
     
     <button type="submit" [disabled]="!formLogin.valid">Registrar</button>
 </form>
+<div class="alert alert-danger" role="alert" *ngIf="mensaje">
+    <strong>{{mensaje}}</strong>
+</div>
