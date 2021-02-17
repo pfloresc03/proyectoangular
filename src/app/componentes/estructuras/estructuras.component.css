@@ -1,0 +1,9 @@
+table{
+    width: 1000px;
+}
+.resultado{
+    border-style: solid;
+    border-color: palegreen;
+    font-family: fantasy;
+    size: 100%;
+}

@@ -1,23 +1,27 @@
-<input type="text" placeholder="Titulo" [(ngModel)]="notanueva.titulo">
-<input type="text" placeholder="Contenido" [(ngModel)]="notanueva.contenido">
-<button (click)="insertarNota()" >Insertar nota</button><br>
-<input type="text" [(ngModel)] = "notaSeleccionada.titulo">
-<input type="text" [(ngModel)] = "notaSeleccionada.contenido">
-<button (click)="editarNota(notaSeleccionada)">Editar</button>
-<table class="table">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Titulo</th>
-            <th>Contenido</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let nota of notas" (click)="notaSeleccionada=nota">
-            <td scope="row">{{nota.id}}</td>
-            <td>{{nota.titulo}}</td>
-            <td>{{nota.contenido}}</td>
-            <button (click)="borrarNota(notaSeleccionada=nota)">Borrar</button>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="formulario">
+        <input class="form-control" type="text" placeholder="Titulo" [(ngModel)]="notanueva.titulo">
+        <input class="form-control" type="text" placeholder="Contenido" [(ngModel)]="notanueva.contenido">
+        <button (click)="insertarNota()" class="btn btn-primary" >Insertar nota</button><br>
+        <input class="form-control" type="text" [(ngModel)] = "notaSeleccionada.titulo">
+        <input class="form-control" type="text" [(ngModel)] = "notaSeleccionada.contenido">
+        <button (click)="editarNota(notaSeleccionada)" class="btn btn-secondary">Editar</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Titulo</th>
+                    <th>Contenido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nota of notas" (click)="notaSeleccionada=nota">
+                    <td scope="row">{{nota.id}}</td>
+                    <td>{{nota.titulo}}</td>
+                    <td>{{nota.contenido}}</td>
+                    <button (click)="borrarNota(notaSeleccionada=nota)">Borrar</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,64 +1,86 @@
-<h3>Estructuras de control con IfElse</h3>
-<label for="verdad">
-    <input type="checkbox" name="verdad" id="verdad" [(ngModel)]="verdad">
-</label>
-<h5>{{verdad? "Es verdad" : "Es mentira"}} con ternario</h5>
-<hr>
-<h5 *ngIf = "verdad; else mentira"> Es verdad con *ngIf</h5>
-<ng-template #mentira><h5>Es mentira con *ngIf</h5></ng-template>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Estructuras de control con IfElse</h3>
+    <label for="verdad">
+        <input type="checkbox" name="verdad" id="verdad" [(ngModel)]="verdad">
+    </label>
+    <h5>{{verdad? "Es verdad" : "Es mentira"}} con ternario</h5>
+    <h5 *ngIf = "verdad; else mentira"> Es verdad con *ngIf</h5>
+    <ng-template #mentira><h5>Es mentira con *ngIf</h5></ng-template>
 
-<label for="edad">
-    Introduce tu edad: <input type="number" [(ngModel)]="edad">
-    <p>If-Else con SugarCandy</p>
-    <p *ngIf = "edad < 18 else adulto"> Es menor de 18 años</p>
-    <ng-template #adulto >
-        <ng-container *ngIf="edad < 30; else mayor"><p>Es menor de 30 años</p></ng-container>
-    </ng-template>
-    <ng-template #mayor><p>Es mayor de 30 años</p></ng-template>
-</label>
-<p>If-Else con microsintaxis</p>
-<ng-template [ngIf] = "edad<18" [ngIfElse]="adulto2"><p>Es menor de 18 años</p></ng-template>
-<ng-template #adulto2 >
-    <ng-template [ngIf]="edad<30" [ngIfElse]="mayor2"><p>Es menor de 30 años </p></ng-template>
-</ng-template>
-<ng-template #mayor2><p>Es mayor de 30 años</p></ng-template>
-<hr>
-<p>Estructuras For avanzado</p>
-<ul>
-    <li *ngFor="let numero of [0,11,22,33,44,55]; let indice = index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count" 
-    [ngClass]="{'text-danger':impar, 'bg-primary':primero}" (click)=muestraLog(indice,impar,primero,ultimo,cuenta)>
-        En la posicion {{indice}} de {{cuenta-1}}, que es {{impar?"impar": "par"}}, está el número {{numero}} {{primero?"que es el primero":""}}{{ultimo?"que es el ultimo":""}}
-    </li>
-</ul>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Número</th>
-            <th>Indice</th>
-            <th>Total de números</th>
-            <th>Par/Impar</th>
-            <th>Primero/Último</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let numero of [0,11,22,33,44,55]; let indice = index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count">
-            <td>{{numero}}</td>
-            <td>{{indice}}</td>
-            <td>{{cuenta-1}}</td>
-            <td>{{impar?"impar": "par"}}</td>
-            <td>{{primero?"Es el primero":""}}{{ultimo?"Es el ultimo":""}}</td>
-        </tr>
-    </tbody>
-</table>
-<input type="number" placeholder="número 1" [(ngModel)]=num1> 
-<input type="number" placeholder="número 2" [(ngModel)]=num2>
-<select [(ngModel)]=operador>
-    <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
-</select>
-<div [ngSwitch]="operador">
-    <span *ngSwitchCase="'suma'">{{num1 + num2}}</span>
-    <span *ngSwitchCase="'resta'">{{num1 - num2}}</span>
-    <span *ngSwitchCase="'multiplicacion'">{{num1 * num2}}</span>
-    <span *ngSwitchCase="'division'">{{num1 / num2}}</span>
-    <span *ngSwitchDefault>Selecciona una operación</span>
-</div>
+    <hr class="my-4">
+
+    <label for="edad">
+        Introduce tu edad: <input type="number" [(ngModel)]="edad">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <th>If-Else con SugarCandy</th>
+                <th>If-Else con microsintaxis</th>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <td><p *ngIf = "edad < 18 else adulto"> Es menor de 18 años</p>
+                        <ng-template #adulto >
+                            <ng-container *ngIf="edad < 30; else mayor"><p>Es menor de 30 años</p></ng-container>
+                        </ng-template>
+                        <ng-template #mayor><p>Es mayor de 30 años</p></ng-template></td>
+                    <td><ng-template [ngIf] = "edad<18" [ngIfElse]="adulto2"><p>Es menor de 18 años</p></ng-template>
+                        <ng-template #adulto2 >
+                            <ng-template [ngIf]="edad<30" [ngIfElse]="mayor2"><p>Es menor de 30 años </p></ng-template>
+                        </ng-template>
+                        <ng-template #mayor2><p>Es mayor de 30 años</p></ng-template></td>
+                </tr>
+            </tbody>
+        </table>
+    </label>
+
+    <hr class="my-4">
+
+    <h4>Estructuras For avanzado</h4>
+    <ul>
+        <li *ngFor="let numero of [0,11,22,33,44,55]; let indice = index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count" 
+        [ngClass]="{'text-danger':impar, 'bg-primary':primero}" (click)=muestraLog(indice,impar,primero,ultimo,cuenta)>
+            En la posicion {{indice}} de {{cuenta-1}}, que es {{impar?"impar": "par"}}, está el número {{numero}} {{primero?"que es el primero":""}}{{ultimo?"que es el ultimo":""}}
+        </li>
+    </ul>
+    <table class="table table-striped table-bordered">
+        <thead class="bg-success">
+            <tr>
+                <th>Número</th>
+                <th>Indice</th>
+                <th>Total de números</th>
+                <th>Par/Impar</th>
+                <th>Primero/Último</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let numero of [0,11,22,33,44,55]; let indice = index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count">
+                <td>{{numero}}</td>
+                <td>{{indice}}</td>
+                <td>{{cuenta-1}}</td>
+                <td>{{impar?"impar": "par"}}</td>
+                <td>{{primero?"Es el primero":""}}{{ultimo?"Es el ultimo":""}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <input class="form-control" type="number" placeholder="número 1" [(ngModel)]=num1> 
+    <input class="form-control" type="number" placeholder="número 2" [(ngModel)]=num2>
+    <select class="form-control" [(ngModel)]=operador>
+        <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
+    </select>
+    <div class="resultado" [ngSwitch]="operador">
+        <span *ngSwitchCase="'suma'">{{num1 + num2}}</span>
+        <span *ngSwitchCase="'resta'">{{num1 - num2}}</span>
+        <span *ngSwitchCase="'multiplicacion'">{{num1 * num2}}</span>
+        <span *ngSwitchCase="'division'">{{num1 / num2}}</span>
+        <span *ngSwitchDefault>Selecciona una operación</span>
+    </div>
+</body>
+</html>

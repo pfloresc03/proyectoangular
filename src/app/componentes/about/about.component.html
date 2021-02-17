@@ -1,6 +1,8 @@
 <html>
-    Nombre: <input type="text" [(ngModel)]="nombre">
-    Apellido: <input type="text" [(ngModel)]="apellido"><br>
-    <button class="btn btn-primary" (click)="llevame()">IR</button>
+    <div class="container">
+        Nombre: <input class="form-control" type="text" [(ngModel)]="nombre" placeholder="Nombre">
+        Apellido: <input class="form-control" type="text" [(ngModel)]="apellido" placeholder="Apellido"><br>
+        <button class="btn btn-primary" (click)="llevame()">IR</button>
+    </div>
 </html>
 

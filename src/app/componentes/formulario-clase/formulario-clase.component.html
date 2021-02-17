@@ -1,8 +1,19 @@
-<input type="text" placeholder="nombre" [(ngModel)]="user.nombre">
-<input type="text" placeholder="apellido" [(ngModel)]="user.apellido">
-<input type="text" placeholder="edad" [(ngModel)]="user.edad">
-<button (click)="insertar()">Insertar</button>
-<br>
-<ul>
-    <li (click)="alertname('Yo soy ' + usern.nombre)" *ngFor = "let usern of users">{{ usern.nombre }} {{usern.apellido}} {{usern.edad}}</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="user.nombre">
+    <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="user.apellido">
+    <input class="form-control" type="text" placeholder="edad" [(ngModel)]="user.edad">
+    <button class="btn btn-success" (click)="insertar()">Insertar</button>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action active">Alumnos</li>
+        <li class="list-group-item" (click)="alertname('Yo soy ' + usern.nombre)" *ngFor = "let usern of users">{{ usern.nombre }} {{usern.apellido}} {{usern.edad}}</li>
+    </ul>    
+</body>
+</html>

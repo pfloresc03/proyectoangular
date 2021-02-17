@@ -1,0 +1,12 @@
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ul{
+    border-style: double;
+    border-color: salmon;
+}
+li{
+    border-style: groove;
+    border-color:palegreen;
+    font-family: fantasy;
+}

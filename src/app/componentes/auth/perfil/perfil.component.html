@@ -5,9 +5,14 @@
         <p class="card-text">E-mail: {{perfil.email}}</p>
         <p class="card-text">Teléfono: {{perfil.telefono}}</p>
         <p class="card-text">DNI: {{perfil.dni}}</p>
-        <img src="{{perfil.imgSrc}}" width="100px">
-        <button (click)="mostrarEditar=!mostrarEditar">Editar usuario</button>
-        <button (click)="mostrarEliminar=!mostrarEliminar">Eliminar usuario</button>
+        <div *ngIf="perfil.imgSrc==null" #nofoto>
+            <img src="assets/nofoto.jpg" width="100px">
+        </div>
+        <div #nofoto>
+            <img src="{{perfil.imgSrc}}" width="100px">
+        </div>
+        <button class="btn btn-warning" (click)="mostrarEditar=!mostrarEditar">Editar usuario</button>
+        <button class="btn btn-danger" (click)="mostrarEliminar=!mostrarEliminar">Eliminar usuario</button>
     </div>
 </div>
 <div class="card text-center" *ngIf="mostrarEditar">
@@ -19,8 +24,8 @@
             <input type="password" formControlName="password" placeholder="Password"><br>
             <input type="text" formControlName="email" placeholder="E-mail"><br>
             <input type="text" formControlName="telefono" placeholder="Teléfono"><br>
-            <button type="submit" [disabled]="!formPerfil.valid">Editar</button>
-            <button (click)="mostrarEditar=!mostrarEditar">Cancelar</button>
+            <button class="btn btn-success" type="submit" [disabled]="!formPerfil.valid">Editar</button>
+            <button class="btn btn-secondary" (click)="mostrarEditar=!mostrarEditar">Cancelar</button>
         </form>
         
     </div>
@@ -30,14 +35,14 @@
     <div class="card-body">
         <input type="text" [(ngModel)]="borrarEmail" placeholder="E-mail">
         
-        <button (click)="eliminarUsuario()" [disabled]="borrarEmail!=perfil.email">Eliminar Usuario</button>
-        <button (click)="mostrarEliminar=!mostrarEliminar">Cancelar</button>
+        <button class="btn btn-danger" (click)="eliminarUsuario()" [disabled]="borrarEmail!=perfil.email">Eliminar Usuario</button>
+        <button class="btn btn-secondary" (click)="mostrarEliminar=!mostrarEliminar">Cancelar</button>
     </div>
 </div>
 <form [formGroup]="formImagen" (ngSubmit)="subirImagen()">
     <input type="file" formControlName="imagen" (change)="cambiaImagen($event)">
-    <button type="submit">Subir imagen</button>
+    <button class="btn btn-success" type="submit">Subir imagen</button>
 </form>
 <br>
 <input type="file" (change)='tengoFoto($event)'>
-<button type="button" (click)="subirFoto()">Subir imagen por parámetros</button>
+<button class="btn btn-success" type="button" (click)="subirFoto()">Subir imagen por parámetros</button>

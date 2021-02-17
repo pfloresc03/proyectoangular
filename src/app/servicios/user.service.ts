@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../clases/user';
+import { accesoUsuario, User } from '../clases/user';
 const url ='http://localhost/backendphp/user/'
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class UserService {
     localStorage.setItem('userToken', token)
   }
 
-  acceso(usuario:User): Observable<any>{
+  acceso(usuario:accesoUsuario): Observable<any>{
     return this.http.post(url+'login/',usuario)
   }
 

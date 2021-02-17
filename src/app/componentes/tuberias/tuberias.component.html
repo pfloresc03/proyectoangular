@@ -1,15 +1,30 @@
-<p>Convertir a mayúsculas: {{usuario |uppercase}}</p>
-<p>Convertir a minúsculas: {{usuario |lowercase}}</p>
-<p>La primera letra de cada palabra en mayúsculas: {{texto |titlecase}}</p>
-<p>Fecha: {{fecha |date}}</p>
-<p>Fecha editada: {{fecha|date:"dd/MM/yyyy"}}</p>
-<p>Hora: {{fecha|date:"hh:mm:ss"}}</p>
-<p>Dinero: {{dinero|currency:"EUR"}}</p>
-<p>Número redondeado: {{numero_pi|number:".3"}}</p>
-<p>Seleccionar elementos de un array: {{preposiciones|slice:2:5}}</p>
-<p>Convertir objeto a formato json: {{usuarios|json}}</p>
-<p>El cuadrado del 5: {{5|numeros:"cuadrado"}}</p>
-<p>La raíz del 81: {{81|numeros:"raiz"}}</p>
-<p>8 en letras: {{8|numeros:"aletras"}}</p>
-Introduce tu DNI: <input type="number" placeholder="DNI" [(ngModel)] = "dni">
-<p>El dni con letra es {{dni |dni}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-striped table-dark">
+        <tbody>
+            <tr>Convertir a mayúsculas: {{usuario |uppercase}}</tr>
+            <tr>Convertir a minúsculas: {{usuario |lowercase}}</tr>
+            <tr>La primera letra de cada palabra en mayúsculas: {{texto |titlecase}}</tr>
+            <tr>Fecha: {{fecha |date}}</tr>
+            <tr>Fecha editada: {{fecha|date:"dd/MM/yyyy"}}</tr>
+            <tr>Hora: {{fecha|date:"hh:mm:ss"}}</tr>
+            <tr>Dinero: {{dinero|currency:"EUR"}}</tr>
+            <tr>Número redondeado: {{numero_pi|number:".3"}}</tr>
+            <tr>Seleccionar elementos de un array: {{preposiciones|slice:2:5}}</tr>
+            <tr>Convertir objeto a formato json: {{usuarios|json}}</tr>
+            <tr>El cuadrado del 5: {{5|numeros:"cuadrado"}}</tr>
+            <tr>La raíz del 81: {{81|numeros:"raiz"}}</tr>
+            <tr>8 en letras: {{8|numeros:"aletras"}}</tr>
+            <tr>Introduce tu DNI: <input type="number" placeholder="DNI" [(ngModel)] = "dni"></tr>
+            <tr>El dni con letra es {{dni |dni}}</tr>  
+        </tbody>
+    </table>
+      
+</body>
+</html>

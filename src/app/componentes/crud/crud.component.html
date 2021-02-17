@@ -15,10 +15,13 @@
 
     <h5>Formulario con ngModel</h5>
     <div class="input-group">
+        
         <input class="form-control" type="text" [(ngModel)] = "notaNueva.titulo" placeholder="Titulo"><br>
         <input class="form-control" type="text" [(ngModel)] = "notaNueva.contenido" placeholder="Contenido"><br>
         <button class="btn btn-primary" (click)="crearNota(notaNueva)">Crear una nota</button>
-    </div>
+        
+    </div> 
+    <hr>
     <div class="input-group">
         <input (input)="buscarConRetraso()" class="form-control" type="text" [(ngModel)] = "busqueda" placeholder="Buscar">
         

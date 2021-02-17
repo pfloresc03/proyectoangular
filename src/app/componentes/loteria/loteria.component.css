@@ -1,0 +1,13 @@
+h1{
+    font-style: initial;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p{
+    font-style: oblique;
+    font-size: 200%;
+    color: red;
+}
+.generar-loteria{
+    border-style:dotted;
+    border-color: lawngreen;
+}

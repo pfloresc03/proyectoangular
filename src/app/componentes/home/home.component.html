@@ -1,38 +1,47 @@
-<html>
-<div class="jumbotron">
-    <h1 class="display-3">Página de prueba</h1>
-    <p class="lead">Jumbo helper text</p>
-    <hr class="my-2">
-    <p>More info</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
-    </p>
-    <div id="container">
-        <input type="text" [(ngModel)]="variable">
-        <h3>{{variable}}</h3>
-        <input type="number" [(ngModel)]="num1"><br>
-        <p *ngIf="num1==0 || num1==null">El numero 1 es 0</p>
-        <input type="number" [(ngModel)]="num2">
-        <p *ngIf="num2==0 || num2==null">El numero 2 es 0</p>
-        <p>La suma de los 2 números es: {{num1+num2}}</p>
-        
-        <ul>
-            <li>Lista de letras</li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-3">Página de prueba</h1>
+        <p class="lead">Jumbo helper text</p>
+        <hr class="my-2">
+        <p>More info</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
+        </p>
+        <div id="container">
+            <input type="text" [(ngModel)]="variable">
+            <h3>{{variable}}</h3>
+            <input type="number" [(ngModel)]="num1"><br>
+            <p *ngIf="num1==0 || num1==null">El numero 1 es 0</p>
+            <input type="number" [(ngModel)]="num2">
+            <p *ngIf="num2==0 || num2==null">El numero 2 es 0</p>
+            <p>La suma de los 2 números es: {{num1+num2}}</p>
+            
             <ul>
-                <li *ngFor="let letra of letras">{{letra}}</li>
+                <li>Lista de letras</li>
+                <ul>
+                    <li *ngFor="let letra of letras">{{letra}}</li>
+                </ul>
+                <li>Lista de Usuarios</li>
+                <ul>
+                    <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios">{{usuario.nombre + " " + usuario.apellido}}</li>
+                </ul>
+                <li>Lista de Usuarios2</li>
+                <ul>
+                    <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios2">{{usuario.nombre + " " + usuario.apellido}}</li>
+                </ul>
             </ul>
-            <li>Lista de Usuarios</li>
-            <ul>
-                <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios">{{usuario.nombre + " " + usuario.apellido}}</li>
-            </ul>
-            <li>Lista de Usuarios2</li>
-            <ul>
-                <li (click)="seleccionUsuario(usuario)" *ngFor="let usuario of usuarios2">{{usuario.nombre + " " + usuario.apellido}}</li>
-            </ul>
-        </ul>
-        <p *ngIf="usuarioseleccionado!=null">Has seleccionado el usuario {{usuarioseleccionado.nombre + " " + usuarioseleccionado.apellido }}</p>
-        
+            <p *ngIf="usuarioseleccionado!=null">Has seleccionado el usuario {{usuarioseleccionado.nombre + " " + usuarioseleccionado.apellido }}</p>
+            
+        </div>
     </div>
-</div>
-
+</body>
 </html>
+
+
