@@ -1,18 +1,40 @@
 <div class="card text-center">
     <div class="card-header h5 text-center">Tu perfil</div>
     <div class="card-body">
-        <h4 class="card-title">{{perfil.nombre}} {{perfil.apellidos}}</h4>
-        <p class="card-text">E-mail: {{perfil.email}}</p>
-        <p class="card-text">Teléfono: {{perfil.telefono}}</p>
-        <p class="card-text">DNI: {{perfil.dni}}</p>
-        <div *ngIf="perfil.imgSrc==null" #nofoto>
-            <img src="assets/nofoto.jpg" width="100px">
+        <div class="row">
+            <div class="col-6">
+                <h4 class="card-title">{{perfil.nombre}} {{perfil.apellidos}}</h4>
+                <p class="card-text">E-mail: {{perfil.email}}</p>
+                <p class="card-text">Teléfono: {{perfil.telefono}}</p>
+                <p class="card-text">DNI: {{perfil.dni}}</p>
+                <div *ngIf="perfil.imgSrc==null" #nofoto>
+                    <img src="assets/nofoto.jpg" width="100px">
+                </div>
+                <div #nofoto>
+                    <img src="{{perfil.imgSrc}}" width="100px">
+                </div>
+                <button class="btn btn-warning" (click)="mostrarEditar=!mostrarEditar">Editar usuario</button>
+                <button class="btn btn-danger" (click)="mostrarEliminar=!mostrarEliminar">Eliminar usuario</button>
+            </div>
+            <div class="col-6">
+                <ul class="list-group">
+                    <li class="list-group-item active">Mensajes</li>
+                    <li *ngFor="let mensaje of mensajes" class="list-group-item">
+                        <div class="row">
+                            <div class="col-10" style="text-align: left;">
+                                {{mensaje.mensaje}} 
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-danger" (click)="eliminarMensaje(mensaje.id)">Borrar</button>
+                            </div>
+                        </div>  
+                    </li>
+                </ul>
+                <p *ngIf="mensaje" class="alert"><b>{{mensaje}}</b></p>
+            </div>
         </div>
-        <div #nofoto>
-            <img src="{{perfil.imgSrc}}" width="100px">
-        </div>
-        <button class="btn btn-warning" (click)="mostrarEditar=!mostrarEditar">Editar usuario</button>
-        <button class="btn btn-danger" (click)="mostrarEliminar=!mostrarEliminar">Eliminar usuario</button>
+        
+        
     </div>
 </div>
 <div class="card text-center" *ngIf="mostrarEditar">

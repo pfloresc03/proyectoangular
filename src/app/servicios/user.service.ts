@@ -49,5 +49,9 @@ export class UserService {
   subirImagen(entrada): Observable<any>{
     return this.http.post(url+'image/',entrada)
   }
+
+  listarUsuarios(): Observable<any>{
+    return this.http.get(url+'list/')
+  }
 }
 

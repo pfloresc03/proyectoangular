@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Usuarios registrados</h4>
+        <ul>
+            <li *ngFor='let user of usuarios' (click)="usuarioSel=user">
+                {{user.nombre}} {{user.apellidos}} 
+                <img src="{{user.imgSrc? user.imgSrc : 'assets/nofoto.jpg'}}" width="40px">
+            </li>
+        </ul>
+
+        
+
+        <div class="card" *ngIf="usuarioSel">
+            <div class="card-body">
+                <h4 class="card-title">Datos del Usuario seleccionado</h4>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="card-text">{{usuarioSel.nombre}} {{usuarioSel.apellidos}}</p>
+                        <p class="card-text">{{usuarioSel.email}}</p>
+                        <p class="card-text">{{usuarioSel.telefono}}</p>
+                    </div>
+                    <div class="col-4">
+                        <div *ngIf="usuarioSel.imgSrc==null" #nofoto>
+                            <img src="assets/nofoto.jpg" width="100px">
+                        </div>
+                        <div #nofoto>
+                            <img src="{{usuarioSel.imgSrc}}" width="100px">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" class="input-group">
+                    <input class="form-control" type="text" placeholder="Mensaje" [(ngModel)]="mensajeNuevo.mensaje">
+                    <button class="btn btn-success" (click)="crearMensaje(mensajeNuevo)" [disabled]="!mensajeNuevo.mensaje">Enviar mensaje</button>
+                </div>
+                <p *ngIf="mensaje" class="alert"><b>{{mensaje}}</b></p>
+
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

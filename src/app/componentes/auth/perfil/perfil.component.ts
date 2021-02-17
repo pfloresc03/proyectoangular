@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Mensaje } from 'src/app/clases/mensaje';
 import { User } from 'src/app/clases/user';
+import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
 
@@ -27,10 +29,13 @@ export class PerfilComponent implements OnInit {
   formImagen = this.fb.group({
     imagen: ['', [Validators.required]]
   })
-  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
+  mensajes: Mensaje[]=[]
+  mensaje: string
+  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router, private servicioMensaje:MensajesService) { }
 
   ngOnInit(): void {
     this.cargarPerfil()
+    this.obtenerMensajes()
   }
 
   cargarPerfil(): void{
@@ -101,6 +106,34 @@ export class PerfilComponent implements OnInit {
         this.cargarPerfil()
       },
       error => {console.log(error)}
+    )
+  }
+
+  obtenerMensajes(): void{
+    this.servicioMensaje.leerMensajes().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.mensajes=respuesta
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+
+  eliminarMensaje(id: number): void{
+    this.servicioMensaje.borrarMensaje(id).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.obtenerMensajes()
+        this.mensaje=respuesta
+        setTimeout(()=>{this.mensaje=null},2000)
+      },
+      error => {
+        console.log(error)
+        this.mensaje=error.error.error
+        setTimeout(()=>{this.mensaje=null},2000)
+      }
     )
   }
 }
