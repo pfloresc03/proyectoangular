@@ -31,6 +31,8 @@ export class PerfilComponent implements OnInit {
   })
   mensajes: Mensaje[]=[]
   mensaje: string
+  repro: boolean = false
+  audio = new Audio();
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router, private servicioMensaje:MensajesService) { }
 
   ngOnInit(): void {
@@ -135,5 +137,17 @@ export class PerfilComponent implements OnInit {
         setTimeout(()=>{this.mensaje=null},2000)
       }
     )
+  }
+  playAudio(){
+    
+    this.audio.src = "../../../assets/EspañaRemix.mp3";
+    this.audio.load();
+    this.audio.play();
+    this.repro = true;
+  }
+  stopAudio(){
+    
+    this.audio.pause();
+    this.repro = false;
   }
 }

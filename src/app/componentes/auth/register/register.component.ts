@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     dni: ['', [Validators.required, dniValido()]]
 
   })
+  mensaje: string
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -31,9 +32,13 @@ export class RegisterComponent implements OnInit {
         respuesta => {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
+          this.mensaje = respuesta
           this.irHacia.navigate(['/perfil'])
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.mensaje = error.error.error
+        }
       )
     }
     else alert('las constraseñas no coinciden')

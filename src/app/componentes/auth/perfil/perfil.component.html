@@ -1,5 +1,8 @@
 <div class="card text-center">
-    <div class="card-header h5 text-center">Tu perfil</div>
+    <div class="card-header h5 text-center">Tu perfil <i class="fa fa-user-circle fa-spin" aria-hidden="true"></i>
+        <i class="fa fa-flag" aria-hidden="true" *ngIf="!repro" (click)="playAudio()"></i>
+        <i class="fa fa-flag" aria-hidden="true" *ngIf="repro" (click)="stopAudio()"></i>
+    </div>
     <div class="card-body">
         <div class="row">
             <div class="col-6">
@@ -18,14 +21,15 @@
             </div>
             <div class="col-6">
                 <ul class="list-group">
-                    <li class="list-group-item active">Mensajes</li>
+                    <li class="list-group-item active">Mensajes <i class="fa fa-envelope-open-o" aria-hidden="true"></i></li>
                     <li *ngFor="let mensaje of mensajes" class="list-group-item">
                         <div class="row">
                             <div class="col-10" style="text-align: left;">
                                 {{mensaje.mensaje}} 
                             </div>
                             <div class="col-2">
-                                <button class="btn btn-danger" (click)="eliminarMensaje(mensaje.id)">Borrar</button>
+                                <i class="fa fa-trash" aria-hidden="true" (click)="eliminarMensaje(mensaje.id)"></i>
+                                
                             </div>
                         </div>  
                     </li>

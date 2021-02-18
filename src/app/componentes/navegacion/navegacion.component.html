@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><img src='assets/icon/logo.png' width="50px"></a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span><i class="fa fa-home" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/about">About</a>
@@ -16,7 +16,7 @@
                 <a class="nav-link" routerLink="/loteria">Lotería</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/calculadora">Calculadora</a>
+                <a class="nav-link" routerLink="/calculadora">Calculadora <i class="fa fa-calculator" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/tuberias">Tuberias</a>
@@ -25,16 +25,16 @@
                 <a class="nav-link" routerLink="/estructuras">Estructuras</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/formularioClase">Formulario</a>
+                <a class="nav-link" routerLink="/formularioClase">Formulario <i class="fa fa-wpforms" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/crudLocal">Crud Local</a>
+                <a class="nav-link" routerLink="/crudLocal">Crud Local <i class="fa fa-sticky-note" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/crud">Crud</a>
+                <a class="nav-link" routerLink="/crud">Crud <i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/listaPerfiles">Usuarios</a>
+                <a class="nav-link" routerLink="/listaPerfiles">Usuarios <i class="fa fa-users" aria-hidden="true"></i></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -47,18 +47,18 @@
         <ul class="navbar-nav mt-2 mt-lg-0">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/registro">Registro</a>
+                    <a class="nav-link" routerLink="/registro">Registro <i class="fa fa-user-circle fa-spin" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Login</a>
+                    <a class="nav-link" routerLink="/login">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </li>
             </ng-template>
             <ng-template #salir>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/perfil">Perfil</a>
+                    <a class="nav-link" routerLink="/perfil">Perfil <i class="fa fa-id-card" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="doLogout()" routerLink=".">Logout</a>
+                    <a class="nav-link" (click)="doLogout()" routerLink=".">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
                 </li>
             </ng-template>
         </ul>

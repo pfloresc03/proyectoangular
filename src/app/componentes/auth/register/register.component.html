@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <p *ngIf="mensaje" class="alert"><b>{{mensaje}}</b></p>
     <form [formGroup]="formRegister" (submit)="submit()">
         <div class="form-group">
           <label for="Nombre">Nombre</label>
