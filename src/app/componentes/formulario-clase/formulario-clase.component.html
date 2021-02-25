@@ -6,14 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="user.nombre">
-    <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="user.apellido">
-    <input class="form-control" type="text" placeholder="edad" [(ngModel)]="user.edad">
-    <button class="btn btn-success" (click)="insertar()">Insertar</button>
-    <br>
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-action active">Alumnos</li>
-        <li class="list-group-item" (click)="alertname('Yo soy ' + usern.nombre)" *ngFor = "let usern of users">{{ usern.nombre }} {{usern.apellido}} {{usern.edad}}</li>
-    </ul>    
+    <div class="col-6">
+        <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="user.nombre">
+        <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="user.apellido">
+        <input class="form-control" type="text" placeholder="edad" [(ngModel)]="user.edad">
+        <button class="btn btn-success" (click)="insertar()">Insertar</button>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action active">Alumnos</li>
+            <li class="list-group-item" (click)="alertname('Yo soy ' + usern.nombre)" *ngFor = "let usern of users">{{ usern.nombre }} {{usern.apellido}} {{usern.edad}}</li>
+        </ul>    
+    </div>
+    
 </body>
 </html>

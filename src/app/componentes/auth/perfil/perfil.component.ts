@@ -57,8 +57,14 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
         this.mostrarEditar = false
+        this.mensaje=respuesta
+        setTimeout(()=>{this.mensaje=null},2000)
       },
-      error => console.log(error)
+      error =>{
+        console.log(error)
+        this.mensaje=error.error.error
+        setTimeout(()=>{this.mensaje=null},2000)
+      } 
     )
     
   }
