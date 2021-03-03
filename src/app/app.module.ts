@@ -30,6 +30,8 @@ import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficaComponent } from './componentes/grafica/grafica.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { environment } from '../environments/environment';
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListaPerfilesComponent
+    ListaPerfilesComponent,
+    GraficaComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
