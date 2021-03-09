@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from './auth/admin.guard';
 import { UserRouterGuard } from './auth/user-router.guard';
 import { AboutComponent } from './componentes/about/about.component';
 import { LoginComponent } from './componentes/auth/login/login.component';
@@ -8,6 +9,7 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudComponent } from './componentes/crud/crud.component';
+import { EditarRolesComponent } from './componentes/editar-roles/editar-roles.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { HolaComponent } from './componentes/hola/hola.component';
@@ -35,6 +37,7 @@ const routes: Routes = [
   {path: "login", component:LoginComponent},
   {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path: "listaPerfiles", component:ListaPerfilesComponent},
+  {path: "admin", component:EditarRolesComponent, canActivate:[AdminGuard]},
   
 
   {path: "**", component:HomeComponent}

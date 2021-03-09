@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let usuario of usuarios'>
+                <td scope="row">{{usuario.nombre}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.nombreRol}}</td>
+                <td>
+                    <select [(ngModel)]='usuario.idRol'>
+                        <option *ngFor='let rol of roles' [value]='rol.id'>{{rol.nombreRol}}</option>
+                    </select> &nbsp;
+                    <button (click)='editarRol(usuario.id, usuario.idRol)'>Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

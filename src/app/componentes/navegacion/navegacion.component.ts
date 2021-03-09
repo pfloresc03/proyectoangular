@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/servicios/admin.service';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {
-  
+  fnAdmin = this.servicioAdmin.isAdmin
 
-  constructor(private servicioUsuario:UserService, private irHacia:Router) { }
+  constructor(private servicioUsuario:UserService, private irHacia:Router, private servicioAdmin:AdminService) { }
 
   ngOnInit(): void {
   }

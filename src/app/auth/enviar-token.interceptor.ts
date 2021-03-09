@@ -28,6 +28,8 @@ export class EnviarTokenInterceptor implements HttpInterceptor {
         if (err.status===401){
           this.servicioUsuario.logout()
           this.irHacia.navigate(['/login'])
+        } else if (err.status===403){
+          this.irHacia.navigate(['/hola/hijo/puta'])
         }
         return throwError(err)
       })
