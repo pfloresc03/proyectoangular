@@ -31,6 +31,8 @@ import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfi
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditarRolesComponent } from './componentes/editar-roles/editar-roles.component';
+import { GraficaComponent } from './componentes/grafica/grafica.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { EditarRolesComponent } from './componentes/editar-roles/editar-roles.co
     RegisterComponent,
     PerfilComponent,
     ListaPerfilesComponent,
-    EditarRolesComponent
+    EditarRolesComponent,
+    GraficaComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
